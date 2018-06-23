@@ -6,10 +6,7 @@ export default class LoginScreen extends Component {
         return(
             <KeyboardAvoidingView behavior="padding" style={styles.container}>
                 <View style={styles.logoContainer}>
-                    <Image
-                        style={styles.logo}
-                        source={require('../../image/logo.png')}
-                    />
+                    <Image style={styles .logo} soruce={require('./image/logo.png')}></Image>
 
                     <Text style={styles.title}>Application for cats</Text>
                 </View>
