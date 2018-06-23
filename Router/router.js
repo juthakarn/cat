@@ -1,10 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
 import LoginScreen from "../Component/LoginScreen";
+import LoginForm from '../Component/LoginForm';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 export default createBottomTabNavigator(
     {
-        Logoin: LoginScreen,
+        Login: LoginScreen,
+        LoginForm:LoginForm,
     },
     {
         navigationOptions: ({ navigation }) => ({
@@ -13,6 +15,8 @@ export default createBottomTabNavigator(
                 let iconName;
                 if (routeName === 'Login') {
                     iconName = `ios-log-in${focused ? '' : '-outline'}`;
+                }else if(routeName === 'LoginForm'){
+                    iconName = `ios-alarm${focused?'':'-outline'}`;
                 }
 
                 // You can return any component that you like here! We usually use an
