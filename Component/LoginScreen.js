@@ -1,42 +1,58 @@
 import React ,{ Component } from 'react';
-import { StyleSheet, View, Image, Text, KeyboardAvoidingView } from 'react-native';
-import LoginForm from './LoginForm';
-export default class LoginScreen extends Component {
-    render(){
-        return(
-            <KeyboardAvoidingView behavior="padding" style={styles.container}>
-                <View style={styles.logoContainer}>
-                    <Image style={styles .logo} soruce={require('./image/logo.png')}></Image>
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
 
-                    <Text style={styles.title}>Application for cats</Text>
-                </View>
-                <View style={styles.formContainer}>
-                <LoginForm/>
-                </View>
-            </KeyboardAvoidingView>
+export default class LoginForm extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <StatusBar
+                    barStyle="light-content"
+                />
+                <TextInput
+                    placeholder="username or email"
+                    placeholderTextColor="rgba(255,255,255,0.7)"
+                    returnKeyType="next"
+                    onSubmitEditing={() => this.passwordInput.focus()}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    style={styles.input}
+                />
+                <TextInput
+                    placeholder="password"
+                    placeholderTextColor="rgba(255,255,255,0.7)"
+                    returnKeyType="go"
+                    secureTextEntry
+                    style={styles.input}
+                    ref={(input) => this.passwordInput = input}
+                />
+                <TouchableOpacity style={styles.buttonContainer}>
+                    <Text style={styles.buttonText}>LOGIN</Text>
+                </TouchableOpacity>
+            </View>
         );
+
+
     }
 }
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#3498db'
+        padding: 20
     },
-    logoContainer: {
-        alignItems: 'center',
-        flexGrow: 1,
-        justifyContent: 'center'
-    },
-    logo: {
-        width: 100,
-        height: 100
-    },
-    title: {
+    input: {
+        height: 40,
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        marginBottom: 10,
         color: '#FFF',
-        marginTop: 10,
-        width: 160,
+        paddingHorizontal: 10
+    },
+    buttonContainer: {
+        backgroundColor: '#2980b9',
+        paddingVertical: 10
+    },
+    buttonText: {
         textAlign: 'center',
-        opacity: 0.9
+        color: '#FFFFFF',
+        fontWeight: '700'
     }
-});
+})
