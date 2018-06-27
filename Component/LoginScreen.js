@@ -1,58 +1,43 @@
 import React ,{ Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar } from 'react-native';
+import { StyleSheet, View, Image, Text, KeyboardAvoidingView } from 'react-native';
+import LoginForm from './LoginForm';
 
-export default class LoginForm extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <StatusBar
-                    barStyle="light-content"
-                />
-                <TextInput
-                    placeholder="username or email"
-                    placeholderTextColor="rgba(255,255,255,0.7)"
-                    returnKeyType="next"
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    style={styles.input}
-                />
-                <TextInput
-                    placeholder="password"
-                    placeholderTextColor="rgba(255,255,255,0.7)"
-                    returnKeyType="go"
-                    secureTextEntry
-                    style={styles.input}
-                    ref={(input) => this.passwordInput = input}
-                />
-                <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>LOGIN</Text>
-                </TouchableOpacity>
-            </View>
+export default class LoginScreen extends Component {
+    render(){
+        return(
+            <KeyboardAvoidingView behavior="padding" style={styles.container}>
+                <View style={styles.logoContainer}>
+                    <Image style={styles .logo} source={require('./Image/logo.png')}></Image>
+
+                    <Text style={styles.title}>Application for cats</Text>
+                </View>
+                <View style={styles.formContainer}>
+                    <LoginForm/>
+                </View>
+            </KeyboardAvoidingView>
         );
-
-
     }
 }
+
 const styles = StyleSheet.create({
     container: {
-        padding: 20
+        flex: 1,
+        backgroundColor: '#3498db'
     },
-    input: {
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 10,
+    logoContainer: {
+        alignItems: 'center',
+        flexGrow: 1,
+        justifyContent: 'center'
+    },
+    logo: {
+        width: 100,
+        height: 100
+    },
+    title: {
         color: '#FFF',
-        paddingHorizontal: 10
-    },
-    buttonContainer: {
-        backgroundColor: '#2980b9',
-        paddingVertical: 10
-    },
-    buttonText: {
+        marginTop: 10,
+        width: 160,
         textAlign: 'center',
-        color: '#FFFFFF',
-        fontWeight: '700'
+        opacity: 0.9
     }
-})
+});
