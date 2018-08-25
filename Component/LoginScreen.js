@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: 100,
-        height: 100
+        width: 150,
+        height: 150
     },
     title: {
         color: '#FFF',
-        marginTop: 10,
+        marginTop: 5,
         width: 160,
         textAlign: 'center',
-        opacity: 0.9
+        opacity: 1.0
     }
 });

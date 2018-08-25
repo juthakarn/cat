@@ -3,14 +3,6 @@ import { StyleSheet, Text, View} from 'react-native';
 export default class  HomeScreen extends Component{
     render(){
         return(
-            <View style={styles.wrapper}>
-                <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>Hello World</Text>
-                </View>
-                <View>
-                    <Text style={styles.subtitle}>A Little Princes</Text>
-                </View>
-            </View>
         );
     }
 }
