@@ -6,16 +6,7 @@ import SignUpScreen from '../Component/SignUpScreen';
 import HomScreen from '../Component/HomeScreen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../Component/HomeScreen';
-
-export default class  extends Component{
-    render(){
-        return(
-            <View>
-
-            </View>
-        )
-    }
-}
+import DetailScreen from '../Component/DetailScreen';
 
 const Register =  createStackNavigator(
     {
@@ -47,6 +38,9 @@ const AppStack = createBottomTabNavigator({
 
     Home:{
         screen:HomeScreen
+    }
+    Detail:{
+        screen:DetailScreen
     }
 
 })
