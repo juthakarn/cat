@@ -1,31 +1,70 @@
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View,Image} from 'react-native';
 export default class  HomeScreen extends Component{
     render(){
         return(
-        );
+            <View>
+
+            </View>
+        )
     }
 }
 
 const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: '#27ae60',
+    container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        backgroundColor: '#3498db'
+    },
+    subformcontainer: {
+        padding: 20
+    },
+    logoContainer: {
+        alignItems: 'center',
+        flexGrow: 1,
+        justifyContent: 'center'
+    },
+    logo: {
+        width: 150,
+        height: 150
     },
     title: {
-        color: 'white',
-        fontSize: 35,
-        fontWeight: 'bold'
+        color: '#252525',
+        marginTop: 5,
+        width: 160,
+        textAlign: 'center',
+        opacity: 1.0
     },
-    subtitle: {
-        color: 'white',
-        fontWeight: '200',
-        paddingBottom: 20
+    input: {
+        height: 40,
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        marginBottom: 10,
+        color: '#FFF',
+        paddingHorizontal: 10
     },
-    titleWrapper: {
+    buttonContainer: {
+        backgroundColor: '#2980b9',
+        paddingVertical: 10
+    },
+    buttonText: {
+        textAlign: 'center',
+        color: '#FFFFFF',
+        fontWeight: '700'
+    },
+    signupTextCont: {
+        flexGrow: 1,
+        alignItems: 'flex-end',
         justifyContent: 'center',
-        flex: 1
+        paddingVertical: 16,
+        flexDirection: 'row'
+    },
+    signupText: {
+        color: 'rgba(255,255,255,0.6)',
+        fontSize: 16
+    },
+    signupButton: {
+        color: '#ffffff',
+        fontSize: 16,
+        fontWeight: '500'
+
     }
 });

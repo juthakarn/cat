@@ -1,32 +1,64 @@
-import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
-import LoginScreen from "../Component/LoginScreen";
-import LoginForm from '../Component/LoginForm';
+//router.js
+import React, {Component} from 'react';
+import { createStackNavigator,createDrawerNavigator ,createBottomTabNavigator,createSwitchNavigator,createTabNavigator} from 'react-navigation';
+import SignInScreen from "../Component/SignInScreen";
+import SignUpScreen from '../Component/SignUpScreen';
+import HomScreen from '../Component/HomeScreen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-export default createBottomTabNavigator(
+import HomeScreen from '../Component/HomeScreen';
+
+export default class  extends Component{
+    render(){
+        return(
+            <View>
+
+            </View>
+        )
+    }
+}
+
+const Register =  createStackNavigator(
     {
-        Login: LoginScreen,
-        LoginForm:LoginForm,
+
+        SignIn:{
+            screen:SignInScreen,
+            navigationOptions: {
+                title: "Sign Up ",
+                header:null
+            }
+        },
+        SignUp: {
+            screen:SignUpScreen,
+            navigationOptions: {
+                title: "Sign In",
+                header:null
+            }
+        },
+        HomScreen1: {
+            screen:HomScreen,
+            navigationOptions: {
+                title: "Sign In",
+                header:null
+            }
+        }
+    });
+
+const AppStack = createBottomTabNavigator({
+
+    Home:{
+        screen:HomeScreen
+    }
+
+})
+
+const Route = createSwitchNavigator(
+    {
+        Authentication:Register,
+        App:AppStack
+
     },
     {
-        navigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, tintColor }) => {
-                const { routeName } = navigation.state;
-                let iconName;
-                if (routeName === 'Login') {
-                    iconName = `ios-log-in${focused ? '' : '-outline'}`;
-                }else if(routeName === 'LoginForm'){
-                    iconName = `ios-alarm${focused?'':'-outline'}`;
-                }
-
-                // You can return any component that you like here! We usually use an
-                // icon component from react-native-vector-icons
-                return <Ionicons name={iconName} size={25} color={tintColor} />;
-            },
-        }),
-        tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-        },
+        initialRouteName: 'Authentication',
     }
-);
+)
+export default  Route
