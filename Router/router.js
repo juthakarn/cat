@@ -7,6 +7,7 @@ import HomScreen from '../Component/HomeScreen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../Component/HomeScreen';
 import DetailScreen from '../Component/DetailScreen';
+import SettingScreen from '../Component/SettingScreen';
 
 const Register =  createStackNavigator(
     {
@@ -41,6 +42,9 @@ const AppStack = createBottomTabNavigator({
     },
     Detail:{
         screen:DetailScreen
+    },
+    Setting:{
+        screen:SettingScreen
     }
 
 })
