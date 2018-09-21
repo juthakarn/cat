@@ -5,8 +5,8 @@ class Detail extends Component {
     render(){
         return (
             <View>
-                <h1>Introduction to the cat</h1>
-                <Text>  </Text>
+                <Text>Introduction to the cat</Text>
+                <Text>Introduction screen</Text>
             </View>
         )
     }
