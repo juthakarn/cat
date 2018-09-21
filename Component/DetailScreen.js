@@ -5,8 +5,8 @@ class Detail extends Component {
     render(){
         return (
             <View>
-                <Text> kkkk <Text/>
-            <View/>
+                <Text> kkkk </Text>
+            </View>
         )
     }
 }

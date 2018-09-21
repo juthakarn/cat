@@ -1,10 +1,21 @@
-import React ,{Component} from 'react';
-import { StyleSheet, Text, View,Image} from 'react-native';
-export default class  HomeScreen extends Component{
-    render(){
-        return(
-            <View>
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
+export default class HomeScreen extends Component {
+
+    render() {
+
+        const user = {
+            name: 'kittinut',
+            surname: 'pramhan',
+            age: 21,
+            father: (arg) => {
+                return arg+'pramhan'
+            }
+        }
+        return (
+            <View>
+                <Text>{user.name + " " + user.surname + " " + user.father('kittnut')}</Text>
             </View>
         )
     }

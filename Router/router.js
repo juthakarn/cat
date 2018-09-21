@@ -38,7 +38,7 @@ const AppStack = createBottomTabNavigator({
 
     Home:{
         screen:HomeScreen
-    }
+    },
     Detail:{
         screen:DetailScreen
     }
