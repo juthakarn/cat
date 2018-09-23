@@ -1,6 +1,10 @@
 //router.js
 import React, {Component} from 'react';
-import { createStackNavigator,createDrawerNavigator ,createBottomTabNavigator,createSwitchNavigator,createTabNavigator} from 'react-navigation';
+import { View } from "react-native";
+import { createStackNavigator,TabBarBottom ,createBottomTabNavigator,createSwitchNavigator,TabNavigator} from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
+import Tab1 from "./Tabs/Tab1";
+import Tab2 from "./Tabs/Tab2";
 import SignInScreen from "../Component/SignInScreen";
 import SignUpScreen from '../Component/SignUpScreen';
 import HomScreen from '../Component/HomeScreen'
