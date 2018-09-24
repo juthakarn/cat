@@ -14,24 +14,20 @@ const Register =  createStackNavigator(
 
         SignIn:{
             screen:SignInScreen,
-            navigationOptions: {
-                title: "Sign Up ",
-                header:null
-            }
+           
         },
         SignUp: {
             screen:SignUpScreen,
-            navigationOptions: {
-                title: "Sign In",
-                header:null
-            }
+            
         },
         HomScreen1: {
             screen:HomScreen,
-            navigationOptions: {
-                title: "Sign In",
-                header:null
-            }
+            
+        }
+    },{
+        navigationOptions: {
+         
+            header:null
         }
     });
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image,KeyboardAvoidingView} from 'react-native';
 
 export default class HomeScreen extends Component {
 
@@ -14,9 +14,11 @@ export default class HomeScreen extends Component {
             }
         }
         return (
-            <View>
+            <KeyboardAvoidingView behavior="padding" style={styles.container}>
+            <View style={styles.container}>
                 <Text>{user.name + " " + user.surname + " " + user.father('kittnut')}</Text>
             </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -24,7 +26,8 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3498db'
+        backgroundColor: '#3498db',
+        padding:50
     },
     subformcontainer: {
         padding: 20
