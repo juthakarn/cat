@@ -1,5 +1,5 @@
-import React ,{ Component } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, KeyboardAvoidingView, Image,Button } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, KeyboardAvoidingView, Image, Button } from 'react-native';
 
 
 
@@ -63,12 +63,12 @@ const styles = StyleSheet.create({
     }
 });
 
-const SignUpScreen = (props)=>{
+const SignUp = (props) => {
     console.log(props)
-    return(
+    return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image style={styles .logo} source={require('./Image/logo.png')}></Image>
+                <Image style={styles.logo} source={require('../Component/Image/logo.png')}></Image>
 
                 <Text style={styles.title}>Application for cats</Text>
             </View>
@@ -78,7 +78,7 @@ const SignUpScreen = (props)=>{
                         barStyle="light-content"
                     />
                     <TextInput
-                        placeholder="username or email"
+                        placeholder="Name"
                         placeholderTextColor="rgba(255,255,255,0.7)"
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
@@ -88,7 +88,25 @@ const SignUpScreen = (props)=>{
                         style={styles.input}
                     />
                     <TextInput
-                        placeholder="password"
+                        placeholder="Email"
+                        placeholderTextColor="rgba(255,255,255,0.7)"
+                        returnKeyType="next"
+                        onSubmitEditing={() => this.passwordInput.focus()}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        style={styles.input}
+                    />
+                    <TextInput
+                        placeholder="Password"
+                        placeholderTextColor="rgba(255,255,255,0.7)"
+                        returnKeyType="go"
+                        secureTextEntry
+                        style={styles.input}
+                        ref={(input) => this.passwordInput = input}
+                    />
+                    <TextInput
+                        placeholder="Confirm Password"
                         placeholderTextColor="rgba(255,255,255,0.7)"
                         returnKeyType="go"
                         secureTextEntry
@@ -96,15 +114,15 @@ const SignUpScreen = (props)=>{
                         ref={(input) => this.passwordInput = input}
                     />
                     <TouchableOpacity style={styles.buttonContainer}>
-                        <Text onPress={()=>{props.navigation.navigate('App')}} style={styles.buttonText}>LOGIN</Text>
+                        <Text onPress={() => { props.navigation.navigate('HomeScreen') }} style={styles.buttonText}>LOGIN</Text>
                     </TouchableOpacity>
                     <View style={styles.signupTextCont}>
-                        <Text style={styles.signupText}>Don't have an account yet?</Text>Text>
-                        <Text title="Sign up" onPress={()=>{props.navigation.navigate('SignUp')}} style={styles.signupbutton}>Sign up</Text>
+                        <Text style={styles.signupText}>Already Account yet?</Text>Text>
+                        <Text onPress={() => { props.navigation.navigate('SignIn') }} style={styles.signupbutton}>Sign In</Text>
                     </View>
                 </View>
             </View>
         </KeyboardAvoidingView>
     )
 }
-export default SignUpScreen
+export default SignUp
