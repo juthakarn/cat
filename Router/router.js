@@ -1,66 +1,93 @@
 //router.js
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { View } from "react-native";
-import { createStackNavigator,TabBarBottom ,createBottomTabNavigator,createSwitchNavigator,TabNavigator} from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
-import Tab1 from "./Tabs/Tab1";
-import Tab2 from "./Tabs/Tab2";
-import SignInScreen from "../Component/SignInScreen";
-import SignUpScreen from '../Component/SignUpScreen';
-import HomScreen from '../Component/HomeScreen'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from '../Component/HomeScreen';
-import DetailScreen from '../Component/DetailScreen';
-import SettingScreen from '../Component/SettingScreen';
+import { createStackNavigator, TabBarBottom, createBottomTabNavigator, createSwitchNavigator, TabNavigator } from 'react-navigation';
 
-const Register =  createStackNavigator(
+import SignInScreen from "../Screen/SignInScreen";
+import SignUpScreen from '../Screen/SignUpScreen';
+import HomScreen from '../Screen/HomeScreen'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import HomeScreen from '../Screen/HomeScreen';
+import DetailScreen from '../Screen/DetailScreen';
+import SettingScreen from '../Screen/SettingScreen';
+import tab1 from '../Screen/Tab1';
+import HeaderStyles from "../HeaderStyle";
+import CustomHeader from '../Component/CustomHeader'
+let headerDefaultNavigationConfig = {
+    header: props => <CustomHeader {...props} />,
+    ...HeaderStyles
+};
+const Register = createStackNavigator(
     {
 
-        SignIn:{
-            screen:SignInScreen,
+        SignIn: {
+            screen: SignInScreen,
             navigationOptions: {
                 title: "Sign Up ",
-                header:null
+                header: null
             }
         },
         SignUp: {
-            screen:SignUpScreen,
+            screen: SignUpScreen,
             navigationOptions: {
                 title: "Sign In",
-                header:null
+                header: null
             }
         },
         HomScreen1: {
-            screen:HomScreen,
+            screen: HomScreen,
             navigationOptions: {
                 title: "Sign In",
-                header:null
+                header: null
             }
         }
     });
 
+const Tab2Screen = createStackNavigator(
+    {
+        Tab2: {
+            screen: tab1,
+            navigationOptions: {
+                headerLeft: null,
+                headerTitle: "Tab 2 Screen"
+            }
+        },
+        Tab2: {
+            screen: DetailScreen,
+            navigationOptions: {
+                headerLeft: null,
+                headerTitle: "Tab 2 Screen"
+            }
+        }
+    }
+);
 const AppStack = createBottomTabNavigator({
 
-    Home:{
-        screen:HomeScreen
+    Home: {
+        screen: Tab2Screen
     },
-    Detail:{
-        screen:DetailScreen
+    Detail: {
+        screen: DetailScreen,
     },
-    Setting:{
-        screen:SettingScreen
+    Setting: {
+        screen: SettingScreen
     }
 
-})
+},
+    {
+        navigationOptions: {
+            ...headerDefaultNavigationConfig
+        }
+    })
 
 const Route = createSwitchNavigator(
     {
-        Authentication:Register,
-        App:AppStack
+        Authentication: Register,
+        App: AppStack
 
     },
     {
         initialRouteName: 'Authentication',
     }
 )
-export default  Route
+export default Route
