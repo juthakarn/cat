@@ -43,16 +43,20 @@ const Register = createStackNavigator(
         }
     });
 
-const Tab2Screen = createStackNavigator(
+const Tab1Screen = createStackNavigator(
     {
-        Tab2: {
+        Tab1: {
             screen: tab1,
             navigationOptions: {
                 headerLeft: null,
-                headerTitle: "Tab 2 Screen"
+                headerTitle: "Tab 1 Screen"
             }
-        },
-        Tab2: {
+        }
+    }
+);
+const Tab2Screen = createStackNavigator(
+    {
+        Tab1: {
             screen: DetailScreen,
             navigationOptions: {
                 headerLeft: null,
@@ -61,16 +65,41 @@ const Tab2Screen = createStackNavigator(
         }
     }
 );
+const Tab3Screen = createStackNavigator(
+    {
+        Tab1: {
+            screen: SettingScreen,
+            navigationOptions: {
+                headerLeft: null,
+                headerTitle: "Tab 3 Screen"
+            }
+        }
+    }
+);
+const Tab4Screen = createStackNavigator(
+    {
+        Tab1: {
+            screen: SettingScreen,
+            navigationOptions: {
+                headerLeft: null,
+                headerTitle: "Tab 3 Screen"
+            }
+        }
+    }
+);
 const AppStack = createBottomTabNavigator({
 
     Home: {
-        screen: Tab2Screen
+        screen: Tab1Screen
     },
     Detail: {
-        screen: DetailScreen,
+        screen: Tab2Screen,
+    },
+    Appointment: {
+        screen: Tab3Screen
     },
     Setting: {
-        screen: SettingScreen
+        screen: Tab4Screen
     }
 
 },
