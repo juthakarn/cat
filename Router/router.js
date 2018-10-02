@@ -1,8 +1,13 @@
 //router.js
 import React, { Component } from 'react';
 import { View } from "react-native";
-import { createStackNavigator, TabBarBottom, createBottomTabNavigator, createSwitchNavigator, TabNavigator } from 'react-navigation';
-
+import {
+    createStackNavigator,
+    TabBarBottom,
+    createBottomTabNavigator,
+    createSwitchNavigator,
+    TabNavigator
+} from 'react-navigation';
 import SignInScreen from "../Screen/SignInScreen";
 import SignUpScreen from '../Screen/SignUpScreen';
 import HomScreen from '../Screen/HomeScreen'
@@ -10,9 +15,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../Screen/HomeScreen';
 import DetailScreen from '../Screen/DetailScreen';
 import SettingScreen from '../Screen/SettingScreen';
+import Appointment from '../Screen/AppointmentScreen'
 import tab1 from '../Screen/Tab1';
 import HeaderStyles from "../HeaderStyle";
 import CustomHeader from '../Component/CustomHeader'
+
 let headerDefaultNavigationConfig = {
     header: props => <CustomHeader {...props} />,
     ...HeaderStyles
@@ -68,7 +75,7 @@ const Tab2Screen = createStackNavigator(
 const Tab3Screen = createStackNavigator(
     {
         Tab1: {
-            screen: SettingScreen,
+            screen: Appointment,
             navigationOptions: {
                 headerLeft: null,
                 headerTitle: "Tab 3 Screen"
