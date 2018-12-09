@@ -1,11 +1,17 @@
 let initailState = {
-    name: 'juthkarn',
-    surname: 'saelim'
+    name: 'kittinut',
+    surname: 'pramhan',
+    //token:'dsadasd'
 }
+import {AUTHENTICATION_SIGNUP,AUTHENTICATION_SIGNIN} from '../actions'
 
-export default (state = initailState, action) => {
+export default (state , action) => {
     switch (action.type) {
+        case AUTHENTICATION_SIGNUP:
+            return { state, ...action.payload}
+        case AUTHENTICATION_SIGNIN:
+            return { state, ...action.payload} 
         default:
-            return state
+            return state = initailState
     }
 }
