@@ -97,7 +97,7 @@ const Tab4Screen = createStackNavigator(
 const AppStack = createBottomTabNavigator({
 
     Home: {
-        screen: Tab1Screen
+        screen: HomeScreen
     },
     Detail: {
         screen: Tab2Screen,
