@@ -38,9 +38,6 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Pan, zoom, and tap on the map!
-        </Text>
         {
           this.state.locationResult === null ?
             <Text>Finding your current location...</Text> :
@@ -49,7 +46,7 @@ export default class App extends Component {
               this.state.mapRegion === null ?
                 <Text>Map region doesn't exist.</Text> :
                 <MapView
-                  style={{ alignSelf: 'stretch', height: 400 }}
+                  style={{ alignSelf: 'stretch', height: '100%' }}
                   region={this.state.mapRegion}
                   onRegionChange={this._handleMapRegionChange}
                 >
@@ -58,10 +55,6 @@ export default class App extends Component {
                     description={'test discibbe'} />
                 </MapView>
         }
-
-        <Text>
-          Location: {this.state.locationResult}
-        </Text>
       </View>
 
     );
@@ -73,7 +66,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
     backgroundColor: '#ecf0f1',
   },
   paragraph: {
