@@ -41,7 +41,6 @@ export default class App extends Component {
         <Text style={styles.paragraph}>
           Pan, zoom, and tap on the map!
         </Text>
-
         {
           this.state.locationResult === null ?
             <Text>Finding your current location...</Text> :
