@@ -44,8 +44,8 @@ const Register = createStackNavigator(
         HomScreen1: {
             screen: HomScreen,
             navigationOptions: {
-                title: "Sign In",
-                header: null
+                headerLeft: null,
+                headerTitle: "Tab 2 Screen"
             }
         }
     });
@@ -94,10 +94,21 @@ const Tab4Screen = createStackNavigator(
         }
     }
 );
+const HomeMapScreen = createStackNavigator(
+    {
+        Tab1: {
+            screen: HomeScreen,
+            navigationOptions: {
+                headerLeft: null,
+                headerTitle: "Map"
+            }
+        }
+    }
+);
 const AppStack = createBottomTabNavigator({
 
     Home: {
-        screen: Tab1Screen
+        screen: HomeMapScreen,
     },
     Detail: {
         screen: Tab2Screen,

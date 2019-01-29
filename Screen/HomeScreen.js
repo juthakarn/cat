@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import MapView from '../Component/MapView'
 
 export default class HomeScreen extends Component {
 
@@ -10,12 +11,12 @@ export default class HomeScreen extends Component {
             surname: 'pramhan',
             age: 21,
             father: (arg) => {
-                return arg+'pramhan'
+                return arg + 'pramhan'
             }
         }
         return (
-            <View>
-                <Text>{user.name + " " + user.surname + " " + user.father('kittnut')}</Text>
+            <View style={styles.container}>
+                <MapView />
             </View>
         )
     }

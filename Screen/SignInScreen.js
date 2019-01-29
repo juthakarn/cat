@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, StatusBar, KeyboardAvoidingView, Image, Button } from 'react-native';
 import { connect } from 'react-redux'
-import {compose,withState, withHandlers} from 'recompose'
-import {Signin} from '../actions'
-const noRegistor ='Not regist already?Please Signup'
+import { compose, withState, withHandlers } from 'recompose'
+import { Signin } from '../actions'
+const noRegistor = 'Not regist already?Please Signup'
 const wrongPassword = 'We cannot found your email or password'
 //() => { props.navigation.navigate('App') 
-const SignUpScreen = ({onChange,token,navigation,onSubmitHandler,isHasToken},...props) => {
-   if(token!==noRegistor&&token!==wrongPassword&&token){
-       navigation.navigate('App')
-   }
+const SignUpScreen = ({ onChange, token, navigation, onSubmitHandler, isHasToken }, ...props) => {
+    if (token !== noRegistor && token !== wrongPassword && token) {
+        navigation.navigate('App')
+    }
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <View style={styles.logoContainer}>
@@ -28,7 +28,7 @@ const SignUpScreen = ({onChange,token,navigation,onSubmitHandler,isHasToken},...
                         returnKeyType="next"
                         onSubmitEditing={() => this.passwordInput.focus()}
                         keyboardType="email-address"
-                        onChangeText={(text)=>onChange(text,'email')}
+                        onChangeText={(text) => onChange(text, 'email')}
                         autoCapitalize="none"
                         autoCorrect={false}
                         style={styles.input}
@@ -39,11 +39,10 @@ const SignUpScreen = ({onChange,token,navigation,onSubmitHandler,isHasToken},...
                         returnKeyType="go"
                         secureTextEntry
                         style={styles.input}
-                        onChangeText={(text)=>onChange(text,'password')}
+                        onChangeText={(text) => onChange(text, 'password')}
                     />
                     {
-                    (token===noRegistor||token===wrongPassword)&&<Text style={styles.error}>{token}</Text>
-                    
+                        (token === noRegistor || token === wrongPassword) && <Text style={styles.error}>{token}</Text>
                     }
                     <TouchableOpacity style={styles.buttonContainer}>
                         <Text onPress={onSubmitHandler} style={styles.buttonText}>LOGIN</Text>
@@ -57,30 +56,30 @@ const SignUpScreen = ({onChange,token,navigation,onSubmitHandler,isHasToken},...
         </KeyboardAvoidingView>
     )
 }
-const mapStateToprops = ({auth})=>{
+const mapStateToprops = ({ auth }) => {
     return {
-        token:auth.token
+        token: auth.token
     }
 }
-const mapDispatchToProps = dispatch =>({
-    onSubmit:data=>dispatch(Signin(data))
+const mapDispatchToProps = dispatch => ({
+    onSubmit: data => dispatch(Signin(data))
 })
 export default compose(
-    connect(mapStateToprops,mapDispatchToProps),
-    withState('state', 'setState', {email:'',password:''}),
+    connect(mapStateToprops, mapDispatchToProps),
+    withState('state', 'setState', { email: '', password: '' }),
     withHandlers({
-        onChange : ({setState,state}) => (text,name) =>{
-            setState({...state,[name]:text}),
-            console.log('email',state)
+        onChange: ({ setState, state }) => (text, name) => {
+            setState({ ...state, [name]: text }),
+                console.log('email', state)
         },
-        onSubmitHandler :({state,onSubmit})=>()=>{
+        onSubmitHandler: ({ state, onSubmit }) => () => {
             onSubmit(state)
         },
-        isHasToken:({token})=>()=>{
-           if(token!==noRegistor&&token!==wrongPassword&&token){
-               return false
-           }
-           console.log('token',token)
+        isHasToken: ({ token }) => () => {
+            if (token !== noRegistor && token !== wrongPassword && token) {
+                return false
+            }
+            console.log('token', token)
         }
     })
 )(SignUpScreen)
@@ -90,8 +89,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#3498db'
     },
-    error:{
-        color:'red',
+    error: {
+        color: 'red',
         fontSize: 12,
     },
     subformcontainer: {
